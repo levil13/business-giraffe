@@ -1,0 +1,36 @@
+@import "../../../../assets/styles/mixins";
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  outline: none;
+
+  &__icon {
+    width: 47px;
+    height: 47px;
+  }
+
+  &__title {
+    margin-left: 13px;
+    color: black;
+
+    &-text {
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: 0.045em;
+
+      &._bold {
+        .roboto-bold();
+      }
+
+      &._light {
+        .roboto-light();
+      }
+    }
+  }
+
+  &._c-default {
+    cursor: default;
+  }
+}

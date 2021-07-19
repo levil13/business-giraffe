@@ -1,0 +1,71 @@
+@import "../../../assets/styles/mixins";
+
+.site-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 0 130px;
+
+  &__contacts {
+    margin-top: 65px;
+  }
+
+  &__messengers {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+    ::ng-deep .mat-button-wrapper {
+      padding: 0;
+    }
+
+    &-button {
+      margin-bottom: 20px;
+      background-color: #E4E4E4;
+
+      &:hover {
+        &:before {
+          right: 110%;
+          opacity: 1;
+        }
+      }
+
+      &:before {
+        top: 70%;
+        right: 0;
+        opacity: 0;
+        transition: 300ms;
+        position: absolute;
+        width: 142px;
+        text-align: center;
+        color: white;
+        border-radius: 15px;
+        padding: 2px 0;
+        .roboto-regular();
+        font-size: 10px;
+        line-height: 12px;
+      }
+
+      &._whatsapp {
+        &:before {
+          content: 'Напишите нам в Whatsapp';
+          background: #00C036;
+        }
+      }
+
+      &._viber {
+        &:before {
+          content: 'Напишите нам в Viber';
+          background: #8100E5;
+        }
+      }
+
+      &-icon {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}

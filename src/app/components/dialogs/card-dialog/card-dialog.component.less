@@ -1,0 +1,100 @@
+@import "../../../../assets/styles/mixins";
+
+.card-dialog {
+  &__title {
+    .roboto-black();
+    font-size: 48px;
+    line-height: 56px;
+    color: #FF6363;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  &__content {
+    &-title {
+      .roboto-light();
+      color: #969696;
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 10px
+    }
+
+    &-image {
+      &-container {
+        width: 50%;
+        height: 355px;
+        position: relative;
+        max-height: 290px
+      }
+    }
+
+    &-text {
+      .roboto-regular();
+      font-size: 14px;
+      line-height: 15px;;
+
+      &-container {
+        width: 50%;
+        display: inline-block;
+        margin-left: 50px;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+    }
+
+    &-button {
+      &-container {
+        text-align: center;
+      }
+    }
+  }
+
+  &__carousel {
+    ::ng-deep .carousel {
+      position: static;
+
+      .mat-icon-button {
+        &:first-of-type {
+          left: -15px;
+        }
+
+        &:last-of-type {
+          right: -15px;
+        }
+      }
+    }
+
+    ::ng-deep .carousel-slide, ::ng-deep .carousel-slide-overlay, ::ng-deep .carousel-slide-content {
+      border-radius: 15px;
+      cursor: default;
+    }
+
+    ::ng-deep .mat-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    ::ng-deep .carousel-indicators {
+      bottom: -20px;
+
+      .mat-focus-indicator {
+        box-shadow: none;
+        height: 7px;
+        width: 7px;
+        margin: 0 3px;
+      }
+
+      .mat-ripple {
+        background-color: #CC9AF2;
+      }
+
+      .mat-button-disabled {
+        .mat-ripple {
+          background-color: #8100E5;
+        }
+      }
+    }
+  }
+}

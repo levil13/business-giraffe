@@ -1,0 +1,101 @@
+@import "../../../../assets/styles/mixins";
+
+.card {
+  display: flex;
+  margin: 0 auto 200px;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+
+    &._reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__image {
+    height: 465px;
+    width: 600px;
+    margin: auto 0;
+
+    &._business-cards,
+    &._print,
+    &._design-service {
+      margin-bottom: 0;
+      &-bg {
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+      }
+    }
+
+    &._business-cards {
+      margin-left: 0;
+
+      &-bg {
+        left: -70px;
+        margin-top: -50px;
+      }
+    }
+
+    &._print {
+      margin-right: 0;
+
+      &-bg {
+        right: -120px;
+        margin-top: -80px;
+      }
+    }
+
+    &._design-service {
+      margin-left: 0;
+
+      &-bg {
+        left: -120px;
+        margin-top: -170px;
+      }
+    }
+  }
+
+  &__description {
+    position: relative;
+
+    &._h575 {
+      height: 575px;
+    }
+
+    &._h535 {
+      height: 535px;
+    }
+
+    &._left {
+      margin-left: 0;
+      margin-right: 100px;
+    }
+
+    &._right {
+      margin-left: 100px;
+      margin-right: 0;
+    }
+
+    &-title {
+      margin-bottom: 34px;
+      width: fit-content;
+
+      &._left {
+        margin-right: -73px;
+      }
+
+      .roboto-light();
+      font-size: 48px;
+      line-height: 41px;
+    }
+
+    &-subtitle {
+      .roboto-thin();
+      font-size: 18px;
+      line-height: 21px;
+      color: #828282;
+    }
+  }
+}

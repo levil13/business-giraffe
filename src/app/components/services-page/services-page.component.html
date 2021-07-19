@@ -1,0 +1,21 @@
+<main data-aos="fade" class="services-page">
+  <section class="services-page__content">
+    <h3 class="services-page__title">Услуги</h3>
+    <div class="services-page__card-container">
+      <div *ngFor="let card of cards"
+           (click)="onCardClick(card)"
+           class="services-page__card"
+           [ngStyle]="{'background': 'url(../../../assets/img/' + card?.image + ') no-repeat center center'}"
+           [ngClass]="card?.class!">
+        <p class="services-page__card-title">
+          {{card?.title}}
+        </p>
+      </div>
+    </div>
+    <app-button (click)="onOrderClick()"
+                class="services-page__button"
+                text="Заказать"
+                buttonClass="_m-t77 ">
+    </app-button>
+  </section>
+</main>

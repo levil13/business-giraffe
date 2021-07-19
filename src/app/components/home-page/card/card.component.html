@@ -1,0 +1,24 @@
+<div class="card">
+  <img [id]="card?.bgImage" class="card__image"
+       [ngClass]="card?.bgImage ? '_' + card?.bgImage!.replace('.png', '') : ''"
+       [src]="'../../../../assets/img/' + card?.bgImage"
+       alt="">
+  <div class="card__content" [ngClass]="{'_reverse': reverseView}" data-aos="fade">
+    <img class="card__image"
+         [ngClass]="card?.image ? '_' + card?.image!.replace('-img.png', '') : ''"
+         [src]="'../../../../assets/img/' + card?.image"
+         [attr.data-aos-anchor]="card?.bgImage"
+         alt="">
+    <div class="card__description _h575"
+         [ngClass]="{'_right': !reverseView, '_left': reverseView}">
+      <p class="card__description-title">{{card?.title}}</p>
+      <p class="card__description-subtitle">{{card?.description}}</p>
+      <app-button style="position: absolute; bottom: 0"
+                  [ngStyle]="{'right': reverseView ? 0 : 'auto', 'left': reverseView ? 'auto': 0}"
+                  (click)="onExamplesButtonClick()"
+                  text="Примеры работ"
+                  buttonClass="_p-s35 ">
+      </app-button>
+    </div>
+  </div>
+</div>

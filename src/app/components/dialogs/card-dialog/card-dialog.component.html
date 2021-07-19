@@ -1,0 +1,41 @@
+<h3 class="card-dialog__title">{{data?.title}}</h3>
+<p class="card-dialog__content-title">Примеры работ нашей типографии:</p>
+<div class="card-dialog__content-wrapper">
+  <div class="card-dialog__content-image-container">
+    <mat-carousel class="card-dialog__carousel"
+                  [svgIconOverrides]="{arrowBack: 'arrow_back',arrowForward: 'arrow_forward'}"
+                  [useMouseWheel]="true"
+                  [useKeyboard]="true"
+                  [maintainAspectRatio]="false"
+                  [hideArrows]="false"
+                  [hideIndicators]="false">
+      <mat-carousel-slide
+        *ngFor="let slide of data?.exampleImages"
+        [hideOverlay]="true" [image]="'../../../../assets/img/' + slide">
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+  <div class="card-dialog__content-text-container">
+    <p class="card-dialog__content-text">
+      <b>Флаеры (листовки)</b> – это эффективный современный способ рекламы, использующийся
+      практически в любой сфере бизнеса
+      в Одессе. Они служат своеобразным приглашением или пропуском на разнообразные мероприятия.
+      <br><br>
+      <b>В чём преимущества флаеров?</b> Сегодня печатной продукции на рынке представлено много, но именно флаера
+      содержат
+      самую значимую информацию, которая выгодно отличает Вашу компанию от конкурентов.
+      <br><br>
+      Это самый простой метод информирования целевой аудитории о Ваших товарах или услугах;
+      <br><br>
+      Хороший способ увеличения объёма продаж (если на нем содержится информация о товарах, скидках или специальных
+      предложениях);
+      <br><br>
+      Реклама на флаерах позволит отличиться от конкурентов;
+      <br><br>
+      Флаер - запоминающийся способ приглашения на разнообразные мероприятия.
+    </p>
+  </div>
+</div>
+<div class="card-dialog__content-button-container">
+  <app-button (click)="onOrderClick()" text="Заказать" buttonClass="_m-t25 _t-s18 _p-tb11s52 _b-r15"></app-button>
+</div>

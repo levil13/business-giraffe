@@ -1,0 +1,115 @@
+<div class="contacts">
+  <div class="contacts__wrapper">
+    <div class="contacts__details">
+      <div class="contacts__logo-wrapper">
+        <app-logo *ngIf="isPopover; else contactsText" logoClass="_c-default"></app-logo>
+        <ng-template #contactsText>
+          <h3 class="contacts__logo-text">Контакты:</h3>
+        </ng-template>
+      </div>
+      <div class="contacts__details-address">
+        <h3 class="contacts__details-address-title">Одесса</h3>
+        <address class="contacts__details-address-subtitle">Проспект Добровольского, 114, Украина</address>
+      </div>
+      <div class="contacts__details-reach">
+        <h3 class="contacts__details-reach-title">Связаться с нами</h3>
+        <div class="contacts__details-reach-subtitle">
+          <a class="contacts__details-reach-subtitle-text" href="tel:+380936558918">+38 (093) 655-89-18</a>
+          <span class="contacts__details-reach-subtitle-icons">
+            <a href="viber://chat?number=380936558918">
+              <img class="contacts__icon" src="../../../assets/svg/viber.svg" alt="">
+            </a>
+            <a target="_blank" href="https://wa.me/380936558918">
+              <img class="contacts__icon" src="../../../assets/svg/whatsapp.svg" alt="">
+            </a>
+          </span>
+        </div>
+        <div class="contacts__details-reach-subtitle">
+          <a class="contacts__details-reach-subtitle-text" href="tel:+380506415020">+38 (050) 641-50-20</a>
+          <span class="contacts__details-reach-subtitle-icons">
+            <a href="viber://chat?number=380506415020">
+              <img class="contacts__icon" src="../../../assets/svg/viber.svg" alt="">
+            </a>
+            <a target="_blank" href="https://wa.me/380506415020">
+              <img class="contacts__icon" src="../../../assets/svg/whatsapp.svg" alt="">
+            </a>
+          </span>
+        </div>
+        <div class="contacts__details-reach-subtitle">
+          <a class="contacts__details-reach-subtitle-text" href="mailto:artgiraffe@gmail.com">artgiraffe@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <form #form [formGroup]="formGroup"
+          class="contacts__form"
+          method="POST" target="_blank" action="https://formsubmit.co/levil133@gmail.com" enctype="multipart/form-data">
+      <fieldset>
+        <p class="contacts__form-field">
+          <label class="contacts__form-label">Ваше Имя *</label>
+          <input class="contacts__form-input"
+                 [ngClass]="{'_invalid': formGroup.get('name')?.invalid && formGroup.get('name')?.dirty}"
+                 placeholder="Иван Иванов"
+                 formControlName="name"
+                 type="text" name="name">
+          <ng-container
+            *ngTemplateOutlet="errorMessage; context: {formControl: formGroup.get('name')}">
+          </ng-container>
+        </p>
+        <p class="contacts__form-field">
+          <label class="contacts__form-label">Ваш электронный адрес *</label>
+          <input class="contacts__form-input"
+                 [ngClass]="{'_invalid': formGroup.get('email')?.invalid && formGroup.get('email')?.dirty}"
+                 placeholder="primer@gmail.com"
+                 formControlName="email"
+                 type="email" name="email">
+          <ng-container
+            *ngTemplateOutlet="errorMessage; context: {formControl: formGroup.get('email')}">
+          </ng-container>
+        </p>
+        <p class="contacts__form-field">
+          <label class="contacts__form-label">Тема Вашего обращения</label>
+          <input class="contacts__form-input"
+                 [ngClass]="{'_invalid': formGroup.get('title')?.invalid && formGroup.get('title')?.dirty}"
+                 formControlName="subject"
+                 placeholder="Тема обращения"
+                 type="text" name="_subject">
+        </p>
+        <p class="contacts__form-field">
+          <label class="contacts__form-label">Текст Вашего обращения *</label>
+          <textarea class="contacts__form-input _area"
+                    [ngClass]="{'_invalid': formGroup.get('text')?.invalid && formGroup.get('text')?.dirty}"
+                    formControlName="text"
+                    placeholder="Текст обращения"
+                    name="text">
+          </textarea>
+          <ng-container
+            *ngTemplateOutlet="errorMessage; context: {formControl: formGroup.get('text')}">
+          </ng-container>
+        </p>
+        <p class="contacts__form-field">
+          <span class="contacts__form-label">Загрузить макет</span>
+          <input #fileInput
+                 class="contacts__form-input _file" (change)="fileUpload($event)"
+                 type="file" name="file">
+          <label class="contacts__form-label _file" (click)="fileInput.click()">
+            <span class="contacts__form-label-file-name">{{fileToUpload?.name || 'Файл не выбран'}}</span>
+          </label>
+        </p>
+
+        <ng-template #errorMessage let-formControl="formControl">
+          <span style="margin-top: 10px; transition: all .3s"
+                [style.line-height]="formControl?.invalid && formControl?.dirty ? 1 : 0"
+                [style.color]="formControl?.invalid && formControl?.dirty ? 'red' : 'transparent'">
+            {{getErrorMessage(formControl)}}
+          </span>
+        </ng-template>
+      </fieldset>
+      <app-button class="contacts__form-submit"
+                  text="Отправить"
+                  buttonType="submit"
+                  buttonClass="_p-s75"
+                  (buttonClick)="onSubmit(form)">
+      </app-button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<button class="button"
+        (click)="buttonClick.emit()"
+        [disabled]="disabled"
+        [ngClass]="buttonClass"
+        [type]="buttonType">
+  <span [style.color]="isLoading ? 'transparent' : 'white'">
+    {{text}}
+  </span>
+  <mat-spinner *ngIf="isLoading" class="button__spinner" [diameter]="30"></mat-spinner>
+</button>

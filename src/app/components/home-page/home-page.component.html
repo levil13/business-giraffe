@@ -1,0 +1,25 @@
+<main data-aos="fade" class="home-page">
+  <section>
+    <div class="home-page__title-wrapper">
+      <h4 data-aos="fade-left" data-aos-duration="400" class="home-page__title _yellow">
+        Лучший дизайн
+      </h4>
+      <h4 data-aos="fade-left" data-aos-duration="600" class="home-page__title _gradient">
+        Качественная типография
+      </h4>
+      <h4 data-aos="fade-left" data-aos-duration="800" class="home-page__title _purple">
+        По самым выгодным ценам
+      </h4>
+    </div>
+    <div class="home-page__subtitle">
+      Искусство полиграфии — пользоваться шаблонами при печати и нешаблонным мышлением при разработке.
+    </div>
+  </section>
+
+  <section class="home-page__content">
+    <h3 class="home-page__content-title">Дизайн и печать</h3>
+    <article *ngFor="let card of cards; odd as isOdd">
+      <app-card [reverseView]="isOdd" [card]="card"></app-card>
+    </article>
+  </section>
+</main>

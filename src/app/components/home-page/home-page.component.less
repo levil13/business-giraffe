@@ -1,0 +1,50 @@
+@import "../../../assets/styles/mixins";
+
+.home-page {
+  margin-top: 31px;
+
+  &__title {
+    .roboto-black();
+    font-size: 72px;
+    line-height: 86px;
+    letter-spacing: -0.015em;
+
+    &._yellow {
+      color: #FFA41D;
+    }
+
+    &._gradient {
+      background: linear-gradient(to right, #FFAF65 0%, #BF04C2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &._purple {
+      color: #9300ED;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 34px;
+
+    .roboto-regular();
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #969696;
+  }
+
+  &__content {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      .roboto-black();
+      font-size: 64px;
+      line-height: 76px;
+      color: #FF6363;
+      margin: 0 auto 115px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<header class="header">
+  <div class="header__logo-wrapper">
+    <app-logo></app-logo>
+  </div>
+  <nav class="header__menu">
+    <a *ngIf="isContactsPopoverVisible; else homeRouterLink " class="header__menu-link">
+      Главная
+    </a>
+    <ng-template #homeRouterLink>
+      <a class="header__menu-link" routerLink="/home" routerLinkActive="_active">
+        Главная
+      </a>
+    </ng-template>
+
+    <a *ngIf="isContactsPopoverVisible; else servicesRouterLink" class="header__menu-link">Услуги</a>
+    <ng-template #servicesRouterLink>
+      <a class="header__menu-link" routerLink="/services" routerLinkActive="_active">
+        Услуги
+      </a>
+    </ng-template>
+
+    <a class="header__menu-link" [ngClass]="{'_active': isContactsPopoverVisible}" (click)="onContactsNavClick()">
+      Контакты
+    </a>
+  </nav>
+  <div class="header__phone-wrapper">
+    <img class="header__icon _phone" src="../../../../assets/svg/phone.svg" alt="">
+    <div class="header__title">
+      <a class="header__title-text _bold _purple _sm" href="tel:+380936558918">093 655-89-18</a>
+    </div>
+  </div>
+</header>

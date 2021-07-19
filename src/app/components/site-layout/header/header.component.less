@@ -1,0 +1,104 @@
+@import "../../../../assets/styles/mixins";
+
+.header {
+  padding: 56px 0;
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-left: 13px;
+
+    &-text {
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: 0.045em;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 300ms;
+
+      &:hover {
+        border-bottom-color: #8100E5;
+      }
+
+      &._purple {
+        color: #8100E5;
+      }
+
+      &._sm {
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0;
+      }
+
+      &._bold {
+        .roboto-bold();
+      }
+
+      &._light {
+        .roboto-light();
+      }
+
+      &._regular {
+        .roboto-regular();
+      }
+    }
+  }
+
+  &__phone {
+    &-wrapper {
+      display: flex;
+    }
+  }
+
+  &__icon {
+    &._logo {
+      width: 47px;
+      height: 47px;
+    }
+
+    &._phone {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  &__menu {
+    margin: 0 auto;
+
+    &-link {
+      margin-right: 56px;
+      transition: 300ms;
+      cursor: pointer;
+
+      .roboto-medium();
+      font-size: 18px;
+      line-height: 18px;
+      color: #969696;
+      text-decoration: none;
+
+      &._active {
+        color: black;
+      }
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+
+    .roboto-regular();
+    font-size: 18px;
+    line-height: 24px;
+    color: #8100E5;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  padding: 27px 83px;
+  width: 80%;
+}

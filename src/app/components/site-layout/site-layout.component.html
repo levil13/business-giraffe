@@ -1,0 +1,26 @@
+<main class="site-layout">
+  <div class="site-layout__messengers">
+    <a target="_blank" href="https://wa.me/380506415020">
+      <button class="site-layout__messengers-button _whatsapp" mat-fab aria-label="Whatsapp contact">
+        <mat-icon class="site-layout__messengers-button-icon" svgIcon="whatsapp" aria-hidden="false"
+                  aria-label="Whatsapp icon">
+        </mat-icon>
+      </button>
+    </a>
+    <a href="viber://chat?number=380506415020">
+      <button class="site-layout__messengers-button _viber" mat-fab aria-label="Viber contact">
+        <mat-icon class="site-layout__messengers-button-icon" svgIcon="viber" aria-hidden="false"
+                  aria-label="Viber icon">
+        </mat-icon>
+      </button>
+    </a>
+  </div>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-contacts class="site-layout__contacts"></app-contacts>
+  <agm-map [latitude]="46.590156" [longitude]="30.796583" [zoom]="18" [disableDefaultUI]="true">
+    <agm-marker
+      [latitude]="46.590156" [longitude]="30.796583">
+    </agm-marker>
+  </agm-map>
+</main>
