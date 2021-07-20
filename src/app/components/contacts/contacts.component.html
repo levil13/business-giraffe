@@ -46,7 +46,7 @@
       <fieldset>
         <p class="contacts__form-field">
           <label class="contacts__form-label">Ваше Имя *</label>
-          <input class="contacts__form-input"
+          <input required class="contacts__form-input"
                  [ngClass]="{'_invalid': formGroup.get('name')?.invalid && formGroup.get('name')?.dirty}"
                  placeholder="Иван Иванов"
                  formControlName="name"
@@ -57,7 +57,7 @@
         </p>
         <p class="contacts__form-field">
           <label class="contacts__form-label">Ваш электронный адрес *</label>
-          <input class="contacts__form-input"
+          <input required class="contacts__form-input"
                  [ngClass]="{'_invalid': formGroup.get('email')?.invalid && formGroup.get('email')?.dirty}"
                  placeholder="primer@gmail.com"
                  formControlName="email"
@@ -76,7 +76,7 @@
         </p>
         <p class="contacts__form-field">
           <label class="contacts__form-label">Текст Вашего обращения *</label>
-          <textarea class="contacts__form-input _area"
+          <textarea required class="contacts__form-input _area"
                     [ngClass]="{'_invalid': formGroup.get('text')?.invalid && formGroup.get('text')?.dirty}"
                     formControlName="text"
                     placeholder="Текст обращения"

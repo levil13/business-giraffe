@@ -1,3 +1,4 @@
+import {ControlPosition} from '@agm/core';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
@@ -7,5 +8,5 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SiteLayoutComponent {
-
+  public ControlPosition = ControlPosition;
 }

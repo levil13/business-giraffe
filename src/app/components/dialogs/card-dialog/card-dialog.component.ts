@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Card} from "../../../utils/interfaces";
-import {ContactsDialogComponent} from "../contacts-dialog/contacts-dialog.component";
 
 @Component({
   selector: 'app-card-dialog',
@@ -11,12 +10,10 @@ import {ContactsDialogComponent} from "../contacts-dialog/contacts-dialog.compon
 })
 export class CardDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Card,
-              public dialogRef: MatDialogRef<CardDialogComponent>,
-              private dialog: MatDialog) {
+              public dialogRef: MatDialogRef<CardDialogComponent>) {
   }
 
   public onOrderClick() {
-    this.dialog.open(ContactsDialogComponent, {panelClass: 'dialog', data: this.data.title});
-    this.dialogRef.close();
+    this.dialogRef.close(this.data.title);
   }
 }

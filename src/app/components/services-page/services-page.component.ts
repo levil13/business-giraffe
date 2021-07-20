@@ -45,10 +45,11 @@ export class ServicesPageComponent {
   }
 
   public onCardClick(card: Card) {
-    this.dialog.open(CardDialogComponent, {panelClass: 'dialog', data: card});
-  }
+    const dialogRef = this.dialog.open(CardDialogComponent, {panelClass: 'dialog', data: card});
 
-  public onOrderClick() {
-    this.dialog.open(ContactsDialogComponent, {panelClass: 'dialog'});
+    dialogRef.afterClosed()
+      .subscribe((cardTitle) => {
+        this.dialog.open(ContactsDialogComponent, {panelClass: 'dialog', data: cardTitle})
+      });
   }
 }
