@@ -17,10 +17,10 @@
           <a class="contacts__details-reach-subtitle-text" href="tel:+380936558918">+38 (093) 655-89-18</a>
           <span class="contacts__details-reach-subtitle-icons">
             <a href="viber://chat?number=380936558918">
-              <img class="contacts__icon" src="../../../assets/svg/viber.svg" alt="">
+              <img class="contacts__icon" src="assets/svg/viber.svg" alt="">
             </a>
             <a target="_blank" href="https://wa.me/380936558918">
-              <img class="contacts__icon" src="../../../assets/svg/whatsapp.svg" alt="">
+              <img class="contacts__icon" src="assets/svg/whatsapp.svg" alt="">
             </a>
           </span>
         </div>
@@ -28,10 +28,10 @@
           <a class="contacts__details-reach-subtitle-text" href="tel:+380506415020">+38 (050) 641-50-20</a>
           <span class="contacts__details-reach-subtitle-icons">
             <a href="viber://chat?number=380506415020">
-              <img class="contacts__icon" src="../../../assets/svg/viber.svg" alt="">
+              <img class="contacts__icon" src="assets/svg/viber.svg" alt="">
             </a>
             <a target="_blank" href="https://wa.me/380506415020">
-              <img class="contacts__icon" src="../../../assets/svg/whatsapp.svg" alt="">
+              <img class="contacts__icon" src="assets/svg/whatsapp.svg" alt="">
             </a>
           </span>
         </div>
@@ -88,17 +88,20 @@
         </p>
         <p class="contacts__form-field">
           <span class="contacts__form-label">Загрузить макет</span>
-          <input #fileInput
-                 class="contacts__form-input _file" (change)="fileUpload($event)"
-                 type="file" name="file">
+          <input #fileInput class="contacts__form-input _file" type="file" name="file">
           <label class="contacts__form-label _file" (click)="fileInput.click()">
-            <span class="contacts__form-label-file-name">{{fileToUpload?.name || 'Файл не выбран'}}</span>
+            <span class="contacts__form-label-file-name">
+              {{formGroup.get('file')?.value?.name || 'Файл не выбран'}}
+            </span>
           </label>
+          <ng-container
+            *ngTemplateOutlet="errorMessage; context: {formControl: formGroup.get('file')}">
+          </ng-container>
         </p>
 
         <ng-template #errorMessage let-formControl="formControl">
-          <span style="margin-top: 10px; transition: all .3s"
-                [style.line-height]="formControl?.invalid && formControl?.dirty ? 1 : 0"
+          <span #errorMessageText style="white-space: break-spaces; margin-top: 10px; transition: all .3s"
+                [style.line-height]="formControl?.invalid && formControl?.dirty ? 1.5 : 0"
                 [style.color]="formControl?.invalid && formControl?.dirty ? 'red' : 'transparent'">
             {{getErrorMessage(formControl)}}
           </span>

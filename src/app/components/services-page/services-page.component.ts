@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Card} from "../../utils/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {CardDialogComponent} from "../dialogs/card-dialog/card-dialog.component";

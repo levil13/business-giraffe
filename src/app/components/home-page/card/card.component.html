@@ -1,12 +1,12 @@
 <div class="card">
   <img [id]="card?.bgImage" class="card__image"
        [ngClass]="card?.bgImage ? '_' + card?.bgImage!.replace('.png', '') : ''"
-       [src]="'../../../../assets/img/' + card?.bgImage"
+       [src]="'assets/img/' + card?.bgImage"
        alt="">
   <div class="card__content" [ngClass]="{'_reverse': reverseView}" data-aos="fade">
     <img class="card__image"
          [ngClass]="card?.image ? '_' + card?.image!.replace('-img.png', '') : ''"
-         [src]="'../../../../assets/img/' + card?.image"
+         [src]="'assets/img/' + card?.image"
          [attr.data-aos-anchor]="card?.bgImage"
          alt="">
     <div class="card__description _h575"

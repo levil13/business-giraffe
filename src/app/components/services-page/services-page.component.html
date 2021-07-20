@@ -5,7 +5,7 @@
       <div *ngFor="let card of cards"
            (click)="onCardClick(card)"
            class="services-page__card"
-           [ngStyle]="{'background': 'url(../../../assets/img/' + card?.image + ') no-repeat center center'}"
+           [ngStyle]="{'background': 'url(assets/img/' + card?.image + ') no-repeat center center'}"
            [ngClass]="card?.class!">
         <p class="services-page__card-title">
           {{card?.title}}
