@@ -14,28 +14,28 @@ export class ServicesPageComponent {
   public cards: Card[] = [
     {
       title: 'Визитные карты',
-      image: 'business-cards-img.png',
-      exampleImages: ['business-cards-img.png', 'design-service-img.png', 'print-img.png']
+      image: 'business-cards-img.jpg',
+      exampleImages: ['business-cards-img.jpg', 'design-service-img.jpg', 'print-img.jpg']
     },
     {
       title: 'Листовки',
-      image: 'design-service-img.png',
-      exampleImages: ['business-cards-img.png', 'design-service-img.png', 'print-img.png']
+      image: 'design-service-img.jpg',
+      exampleImages: ['business-cards-img.jpg', 'design-service-img.jpg', 'print-img.jpg']
     },
     {
       title: 'Флаеры',
-      image: 'print-img.png',
-      exampleImages: ['business-cards-img.png', 'design-service-img.png', 'print-img.png']
+      image: 'print-img.jpg',
+      exampleImages: ['business-cards-img.jpg', 'design-service-img.jpg', 'print-img.jpg']
     },
     {
       title: 'Буклеты',
-      image: 'business-cards-img.png',
-      exampleImages: ['business-cards-img.png', 'design-service-img.png', 'print-img.png']
+      image: 'business-cards-img.jpg',
+      exampleImages: ['business-cards-img.jpg', 'design-service-img.jpg', 'print-img.jpg']
     },
     {
       title: 'Широкоформатная печать',
-      image: 'print-img.png',
-      exampleImages: ['business-cards-img.png', 'design-service-img.png', 'print-img.png'],
+      image: 'print-img.jpg',
+      exampleImages: ['business-cards-img.jpg', 'design-service-img.jpg', 'print-img.jpg'],
       class: '_w-100 _m-b0'
     }
   ];
@@ -49,7 +49,9 @@ export class ServicesPageComponent {
 
     dialogRef.afterClosed()
       .subscribe((cardTitle) => {
-        this.dialog.open(ContactsDialogComponent, {panelClass: 'dialog', data: cardTitle})
+        if (cardTitle) {
+          this.dialog.open(ContactsDialogComponent, {panelClass: 'dialog', data: cardTitle})
+        }
       });
   }
 }

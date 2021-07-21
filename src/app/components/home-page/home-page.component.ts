@@ -19,8 +19,8 @@ export class HomePageComponent {
         '           Поэтому срочная печать визиток - самая востребованная полиграфическая услуга на сегодняшний день. Сегодня\n' +
         '           каждый клиент, будь-то отдельный бизнесмен или огромная корпорация, могут заказать и получить визитную\n' +
         '           карточку с индивидуальным и уникальным дизайном по доступной стоимости.',
-      image: 'business-cards-img.png',
-      bgImage: 'business-cards-bg.png'
+      image: 'business-cards-img.jpg',
+      bgImage: 'business-cards-bg.jpg'
     },
     {
       title: 'Широкоформатная печать',
@@ -28,8 +28,8 @@ export class HomePageComponent {
         '          или\n' +
         '          плоттере. Широкоформатная печать востребована в маркетинговой и рекламной сфере, архитектуре и дизайне.\n' +
         '          Преимущество широкоформатной печати - реалистичная цветопередача и предельная точность.',
-      image: 'print-img.png',
-      bgImage: 'print-bg.png'
+      image: 'print-img.jpg',
+      bgImage: 'print-bg.jpg'
     },
     {
       title: 'Услуги дизайна',
@@ -38,8 +38,8 @@ export class HomePageComponent {
         '           \n' +
         '           В этом вам помогут наши дизайнеры: от идеи до ее воплощения в жизнь. Богатый опыт и собственное\n' +
         '           многофункциональное оборудование, позволяют реализовать самые смелые, неординарные дизайнерские решения.',
-      image: 'design-service-img.png',
-      bgImage: 'design-service-bg.png'
+      image: 'design-service-img.jpg',
+      bgImage: 'design-service-bg.jpg'
     },
   ]
 }
