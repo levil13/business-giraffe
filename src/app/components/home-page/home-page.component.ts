@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Card} from "../../utils/interfaces";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,14 @@ import {Card} from "../../utils/interfaces";
   styleUrls: ['./home-page.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
+  constructor(private title: Title) {
+
+  }
+
+  public ngOnInit(): void {
+    this.title.setTitle('Главная');
+  }
 
   public cards: Card[] = [
     {

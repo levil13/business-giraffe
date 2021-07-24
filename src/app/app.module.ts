@@ -38,20 +38,20 @@ import {MatButtonModule} from "@angular/material/button";
     CardDialogComponent,
     CardComponent
   ],
-    imports: [
-        AgmModule,
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        CommonModule,
-        CarouselModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatDialogModule,
-        MatIconModule,
-        MatProgressSpinnerModule,
-        MatButtonModule
-    ],
+  imports: [
+    AgmModule,
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    CarouselModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

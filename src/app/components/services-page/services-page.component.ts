@@ -1,8 +1,9 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Card} from "../../utils/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {CardDialogComponent} from "../dialogs/card-dialog/card-dialog.component";
 import {ContactsDialogComponent} from "../dialogs/contacts-dialog/contacts-dialog.component";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-services-page',
@@ -10,7 +11,7 @@ import {ContactsDialogComponent} from "../dialogs/contacts-dialog/contacts-dialo
   styleUrls: ['./services-page.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ServicesPageComponent {
+export class ServicesPageComponent implements OnInit{
   public cards: Card[] = [
     {
       title: 'Визитные карты',
@@ -40,8 +41,15 @@ export class ServicesPageComponent {
     }
   ];
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private title: Title,
+              private meta: Meta) {
 
+  }
+
+  public ngOnInit(): void {
+    this.title.setTitle('Услуги');
+    this.meta.updateTag({name: 'description', content: 'Типография услуги'});
   }
 
   public onCardClick(card: Card) {
