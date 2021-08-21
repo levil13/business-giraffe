@@ -1,4 +1,4 @@
-@import "../../../../assets/styles/mixins";
+@import "../../../../styles/mixins";
 
 .button {
   transition: 300ms;
@@ -25,10 +25,6 @@
     border-radius: 15px;
   }
 
-  &._p-tb11s52 {
-    padding: 11px 52px;
-  }
-
   &._t-s18 {
     font-size: 18px;
     line-height: 21px;
@@ -52,6 +48,10 @@
     padding-right: 75px;
   }
 
+  &._p-tb11s52 {
+    padding: 11px 52px;
+  }
+
   .roboto-regular();
   font-size: 24px;
   line-height: 24px;
@@ -69,5 +69,13 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  &._mobile {
+    border-radius: 15px;
+    padding: 9px 19px;
+    font-size: 14px;
+    line-height: 16px;
+    width: 100%;
   }
 }

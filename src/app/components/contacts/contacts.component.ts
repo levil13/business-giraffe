@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Constants} from "../../utils/constants";
+import {MediaService} from "../../services/media.service";
 
 @Component({
   selector: 'app-contacts',
@@ -39,7 +40,8 @@ export class ContactsComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private cdr: ChangeDetectorRef,
-              private renderer: Renderer2) {
+              private renderer: Renderer2,
+              public mediaService: MediaService) {
   }
 
   public ngOnInit(): void {

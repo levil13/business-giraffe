@@ -1,12 +1,41 @@
-@import "../../../assets/styles/mixins";
+@import "../../../styles/mixins";
+@import "../../../styles/media";
 
 .site-layout {
   display: flex;
   flex-direction: column;
   padding: 0 130px;
 
-  &__contacts {
-    margin-top: 65px;
+  @media @mobile {
+    padding: 0 18px;
+  }
+
+  &__header {
+    padding-top: 56px;
+    transition: 500ms;
+
+    @media @mobile {
+      padding: 10px 16px;
+      height: 30px;
+      position: sticky;
+      top: -1px;
+      background-color: white;
+      z-index: 1;
+      width: 100%;
+      align-self: center;
+    }
+
+    &._is-pinned {
+      @media @mobile {
+        background-color: #E4E4E4;
+      }
+    }
+
+    &._w-70 {
+      @media @mobile {
+        height: 70px;
+      }
+    }
   }
 
   &__messengers {
@@ -67,5 +96,19 @@
         width: 40px;
       }
     }
+  }
+
+  &__page {
+    margin-top: 56px;
+
+    @media @mobile {
+      margin-top: 36px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 65px;
   }
 }

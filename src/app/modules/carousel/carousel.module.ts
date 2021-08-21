@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
-import {MatCarouselModule} from "@ngbmodule/material-carousel";
+import {MatCarouselModule} from "ng-mat-carousel";
 
 @NgModule({
-  declarations: [],
   imports: [MatCarouselModule.forRoot()],
   exports: [MatCarouselModule]
 })

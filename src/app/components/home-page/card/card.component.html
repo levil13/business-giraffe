@@ -1,25 +1,32 @@
 <div class="card">
   <img [id]="card?.bgImage" class="card__image"
        [ngClass]="card?.bgImage ? '_' + card?.bgImage!.replace('.jpg', '') : ''"
-       [src]="'assets/img/' + card?.bgImage"
+       [src]="'assets/img/' + ((mediaService.media$ | async)?.isMobile ? 'mobile/' : '') + card?.bgImage"
        [alt]="card?.bgImage">
   <div class="card__content"
        [ngClass]="{'_reverse': reverseView}"
-       data-aos="fade">
+       [attr.data-aos]="(mediaService.media$ | async)?.isDesktop ? 'fade' : ''">
     <img class="card__image"
          [ngClass]="card?.image ? '_' + card?.image!.replace('-img.jpg', '') : ''"
-         [src]="'assets/img/' + card?.image"
+         [src]="'assets/img/' + ((mediaService.media$ | async)?.isMobile ? 'mobile/' : '') + card?.image"
          [attr.data-aos-anchor]="card?.bgImage"
          [alt]="card?.image">
-    <div class="card__description _h575"
-         [ngClass]="{'_right': !reverseView, '_left': reverseView}">
+    <div class="card__description"
+         [ngClass]="{
+         '_h575': (mediaService.media$ | async)?.isDesktop,
+         '_right': !reverseView && (mediaService.media$ | async)?.isDesktop,
+         '_left': reverseView && (mediaService.media$ | async)?.isDesktop
+         }">
       <h3 class="card__description-title">{{card?.title}}</h3>
-      <p class="card__description-subtitle">{{card?.description}}</p>
-      <app-button style="position: absolute; bottom: 0"
-                  [ngStyle]="{'right': reverseView ? 0 : 'auto', 'left': reverseView ? 'auto': 0}"
+      <p class="card__description-subtitle">
+        {{(mediaService.media$ | async)?.isDesktop ? card?.description : card?.shortDescription}}
+      </p>
+      <app-button class="card__button"
+                  [style.left]="reverseView && (mediaService.media$ | async)?.isDesktop ? 'auto': 0"
+                  [style.right]="reverseView && (mediaService.media$ | async)?.isDesktop ? 0 : 'auto'"
                   (click)="onExamplesButtonClick()"
                   text="Примеры работ"
-                  buttonClass="_p-s35 ">
+                  buttonClass="_p-s35">
       </app-button>
     </div>
   </div>

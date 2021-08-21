@@ -4,11 +4,11 @@
     height: 100%;
     width: 1120px;
     padding: 28px 80px;
-  }
 
-  .mat-dialog-content {
-    height: 100%;
-    max-height: 100%;
-    overflow: visible;
+    @media @mobile {
+      padding: 60px 16px;
+      border-radius: 0;
+      height: 100vh;
+    }
   }
 }

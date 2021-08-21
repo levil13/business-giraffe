@@ -1,0 +1,100 @@
+@import (less) 'media.less';
+
+.carousel-component {
+  &._mobile-dialog {
+    .carousel {
+      padding-top: 0;
+
+      .mat-icon-button {
+        @media @mobile {
+          margin-top: 0;
+        }
+
+        &:first-of-type {
+          @media @mobile {
+            left: -15px !important;
+          }
+        }
+
+        &:last-of-type {
+          @media @mobile {
+            right: -15px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel {
+    position: static !important;
+
+    @media @mobile {
+      padding-top: 25px;
+    }
+
+    .mat-icon-button {
+      @media @mobile {
+        margin-top: 35px;
+      }
+
+      &:first-of-type {
+        left: -15px !important;
+
+        @media @mobile {
+          left: 30px !important;
+        }
+
+        @media @mobile-landscape {
+          left: 25% !important;
+        }
+      }
+
+      &:last-of-type {
+        right: -15px !important;
+
+        @media @mobile {
+          right: 30px !important;
+        }
+
+        @media @mobile-landscape {
+          right: 25% !important;
+        }
+      }
+    }
+  }
+
+  .carousel-slide, .carousel-slide-overlay, .carousel-slide-content {
+    border-radius: 15px;
+    cursor: default;
+  }
+
+  .mat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-indicators {
+    bottom: -20px !important;
+
+    @media @mobile {
+      bottom: -25px !important;
+    }
+
+    .mat-focus-indicator {
+      box-shadow: none !important;
+      height: 7px !important;
+      width: 7px !important;
+      margin: 0 3px !important;
+    }
+
+    .mat-ripple {
+      background-color: #CC9AF2;
+    }
+
+    .mat-button-disabled {
+      .mat-ripple {
+        background-color: #8100E5;
+      }
+    }
+  }
+}

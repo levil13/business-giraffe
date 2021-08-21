@@ -1,32 +1,60 @@
-<header class="header">
-  <div class="header__logo-wrapper">
-    <app-logo></app-logo>
+<div class="header">
+  <div class="header__wrapper">
+    <div class="header__logo-wrapper">
+      <app-logo></app-logo>
+    </div>
+
+    <ng-container *ngIf="(mediaService.media$ | async)?.isDesktop; else mobileMenu">
+      <div data-aos="fade" data-aos-duration="500">
+        <ng-container *ngTemplateOutlet="navigation"></ng-container>
+      </div>
+      <div class="header__phone-wrapper">
+        <img class="header__icon _phone" src="assets/svg/phone.svg" alt="phone-icon">
+        <div class="header__title">
+          <a class="header__title-text _bold _purple _sm" href="tel:+380936558918">093 655-89-18</a>
+        </div>
+      </div>
+    </ng-container>
   </div>
+
+  <div *ngIf="isMenuOpened && (mediaService.media$ | async)?.isMobile">
+    <div class="header__menu-fade">
+      <ng-container *ngTemplateOutlet="navigation"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #mobileMenu>
+  <button class="header__menu-toggle"
+          (click)="onMenuClick()"
+          [ngClass]="{'_is-active': isMenuOpened}">
+  </button>
+</ng-template>
+
+<ng-template #navigation>
   <nav class="header__menu">
-    <a *ngIf="isContactsPopoverVisible; else homeRouterLink " class="header__menu-link">
+    <a *ngIf="isContactsPopoverVisible; else homeRouterLink" class="header__menu-link">
       Главная
     </a>
-    <ng-template #homeRouterLink>
-      <a class="header__menu-link" routerLink="/home" routerLinkActive="_active">
-        Главная
-      </a>
-    </ng-template>
 
-    <a *ngIf="isContactsPopoverVisible; else servicesRouterLink" class="header__menu-link">Услуги</a>
-    <ng-template #servicesRouterLink>
-      <a class="header__menu-link" routerLink="/services" routerLinkActive="_active">
-        Услуги
-      </a>
-    </ng-template>
+    <a *ngIf="isContactsPopoverVisible; else servicesRouterLink" class="header__menu-link">
+      Услуги
+    </a>
 
     <a class="header__menu-link" [ngClass]="{'_active': isContactsPopoverVisible}" (click)="onContactsNavClick()">
       Контакты
     </a>
   </nav>
-  <div class="header__phone-wrapper">
-    <img class="header__icon _phone" src="assets/svg/phone.svg" alt="phone-icon">
-    <div class="header__title">
-      <a class="header__title-text _bold _purple _sm" href="tel:+380936558918">093 655-89-18</a>
-    </div>
-  </div>
-</header>
+</ng-template>
+
+<ng-template #homeRouterLink>
+  <a class="header__menu-link" routerLink="/home" routerLinkActive="_active">
+    Главная
+  </a>
+</ng-template>
+
+<ng-template #servicesRouterLink>
+  <a class="header__menu-link" routerLink="/services" routerLinkActive="_active">
+    Услуги
+  </a>
+</ng-template>

@@ -1,9 +1,14 @@
-@import "../../../assets/styles/mixins";
+@import "../../../styles/mixins";
+@import "../../../styles/media";
 
 .contacts {
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    @media @mobile {
+      flex-direction: column;
+    }
   }
 
   &__icon {
@@ -16,18 +21,31 @@
   &__logo {
     &-wrapper {
       margin-bottom: 40px;
+
+      @media @mobile {
+        margin-bottom: 5px;
+      }
     }
 
     &-text {
       .roboto-black();
       font-size: 36px;
       line-height: 43px;
-      margin-bottom: 10px;
+
+      @media @mobile {
+        font-size: 18px;
+        line-height: 21px;
+      }
     }
   }
 
   &__details {
     width: 50%;
+
+    @media @mobile {
+      width: 100%;
+      margin-bottom: 56px;
+    }
 
     &-address {
       margin-bottom: 10px;
@@ -37,6 +55,12 @@
         font-size: 36px;
         line-height: 43px;
         margin-bottom: 10px;
+
+        @media @mobile {
+          font-size: 21px;
+          line-height: 25px;
+          margin-bottom: 5px;
+        }
       }
 
       &-subtitle {
@@ -45,6 +69,12 @@
         line-height: 29px;
         font-style: normal;
         max-width: 75%;
+
+        @media @mobile {
+          font-size: 16px;
+          line-height: 19px;
+          max-width: 100%;
+        }
       }
     }
 
@@ -54,6 +84,12 @@
         font-size: 36px;
         line-height: 43px;
         margin-bottom: 10px;
+
+        @media @mobile {
+          font-size: 21px;
+          line-height: 25px;
+          margin-bottom: 5px;
+        }
       }
 
       &-subtitle {
@@ -65,6 +101,11 @@
         line-height: 29px;
         font-style: normal;
         margin-bottom: 5px;
+
+        @media @mobile {
+          font-size: 16px;
+          line-height: 19px;
+        }
 
         &-text {
           color: black;
@@ -90,6 +131,14 @@
     flex-direction: column;
     width: 50%;
 
+    @media @mobile {
+      width: 100%;
+    }
+
+    &-fields {
+      display: contents;
+    }
+
     &-label {
       .roboto-regular();
       font-size: 18px;
@@ -97,7 +146,14 @@
       display: block;
       margin-bottom: 15px;
 
+      @media @mobile {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 8px;
+      }
+
       &._file {
+        display: flex;
         padding: 10px 12px;
         border-radius: 15px;
         border: 1px solid black;
@@ -105,6 +161,10 @@
         line-height: 16px;
         cursor: pointer;
         color: black;
+
+        &._invalid {
+          border-color: red;
+        }
 
         &:hover {
           &:before {
@@ -124,19 +184,27 @@
         }
       }
 
-      &-file-name {
-        vertical-align: middle;
-        display: inline-block;
+      &-filename {
+        overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden;
-        width: 200px;
+        max-width: 60%;
+        align-self: center;
+
+        @media @mobile {
+          max-width: 40%;
+        }
       }
     }
 
     &-field {
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      position: relative;
+
+      &._title {
+        margin-bottom: 20px;
+      }
     }
 
     &-input {
@@ -153,6 +221,10 @@
         height: 174px;
         resize: none;
         padding: 10px 25px;
+
+        @media @mobile {
+          height: 100px;
+        }
       }
 
       &._file {
@@ -161,6 +233,8 @@
         opacity: 0;
         overflow: hidden;
         position: absolute;
+        left: 0;
+        top: 0;
         z-index: -1;
       }
 
@@ -184,10 +258,20 @@
       margin-top: 20px;
       text-align: center
     }
+
+    &-error {
+      white-space: break-spaces;
+      margin-top: 10px;
+      transition: all .3s;
+
+      @media @mobile {
+        max-width: 90vw;
+      }
+    }
   }
 
   &-shake {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;

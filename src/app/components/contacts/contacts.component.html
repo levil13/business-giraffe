@@ -1,6 +1,6 @@
 <div class="contacts">
   <div class="contacts__wrapper">
-    <div class="contacts__details">
+    <div *ngIf="isPopover ? (mediaService.media$ | async)?.isDesktop : true" class="contacts__details">
       <div class="contacts__logo-wrapper">
         <app-logo *ngIf="isPopover; else contactsText" logoClass="_c-default"></app-logo>
         <ng-template #contactsText>
@@ -43,7 +43,7 @@
     <form #form [formGroup]="formGroup"
           class="contacts__form"
           method="POST" target="_blank" action="https://formsubmit.co/levil133@gmail.com" enctype="multipart/form-data">
-      <fieldset>
+      <fieldset class="contacts__form-fields">
         <p class="contacts__form-field">
           <label class="contacts__form-label">Ваше Имя *</label>
           <input required class="contacts__form-input"
@@ -66,7 +66,7 @@
             *ngTemplateOutlet="errorMessage; context: {formControl: formGroup.get('email')}">
           </ng-container>
         </p>
-        <p class="contacts__form-field">
+        <p class="contacts__form-field _title">
           <label class="contacts__form-label">Тема Вашего обращения</label>
           <input class="contacts__form-input"
                  [ngClass]="{'_invalid': formGroup.get('title')?.invalid && formGroup.get('title')?.dirty}"
@@ -89,8 +89,10 @@
         <p class="contacts__form-field">
           <span class="contacts__form-label">Загрузить макет</span>
           <input #fileInput class="contacts__form-input _file" type="file" name="file">
-          <label class="contacts__form-label _file" (click)="fileInput.click()">
-            <span class="contacts__form-label-file-name">
+          <label class="contacts__form-label _file"
+                 [ngClass]="{'_invalid': formGroup.get('file')?.invalid && formGroup.get('file')?.dirty}"
+                 (click)="fileInput.click()">
+            <span class="contacts__form-label-filename">
               {{formGroup.get('file')?.value?.name || 'Файл не выбран'}}
             </span>
           </label>
@@ -100,7 +102,7 @@
         </p>
 
         <ng-template #errorMessage let-formControl="formControl">
-          <span #errorMessageText style="white-space: break-spaces; margin-top: 10px; transition: all .3s"
+          <span #errorMessageText class="contacts__form-error"
                 [style.line-height]="formControl?.invalid && formControl?.dirty ? 1.5 : 0"
                 [style.color]="formControl?.invalid && formControl?.dirty ? 'red' : 'transparent'">
             {{getErrorMessage(formControl)}}
@@ -111,6 +113,7 @@
                   text="Отправить"
                   buttonType="submit"
                   buttonClass="_p-s75"
+                  [style.width]="(mediaService.media$ | async)?.isMobile ? '100%' : 'auto'"
                   (buttonClick)="onSubmit(form)">
       </app-button>
     </form>

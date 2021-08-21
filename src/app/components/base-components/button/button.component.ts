@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {MediaService} from "../../../services/media.service";
 
 @Component({
   selector: 'app-button',
@@ -24,4 +25,7 @@ export class ButtonComponent {
 
   @Output()
   public buttonClick: EventEmitter<void> = new EventEmitter();
+
+  constructor(public mediaService: MediaService) {
+  }
 }

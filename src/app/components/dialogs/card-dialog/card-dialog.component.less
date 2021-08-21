@@ -1,4 +1,5 @@
-@import "../../../../assets/styles/mixins";
+@import "../../../../styles/mixins";
+@import "../../../../styles/media";
 
 .card-dialog {
   &__title {
@@ -8,6 +9,11 @@
     color: #FF6363;
     margin: 0 auto 24px;
     text-align: center;
+
+    @media @mobile {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
 
   &__content {
@@ -16,7 +22,12 @@
       color: #969696;
       font-size: 18px;
       line-height: 21px;
-      margin-bottom: 10px
+      margin-bottom: 10px;
+
+      @media @mobile {
+        font-size: 14px;
+        line-height: 16px;
+      }
     }
 
     &-image {
@@ -24,24 +35,49 @@
         width: 50%;
         height: 355px;
         position: relative;
-        max-height: 290px
+        max-height: 290px;
+
+        @media @mobile {
+          height: 207px;
+          width: 100%;
+        }
+
+        @media @mobile-landscape {
+          width: 50%;
+          align-self: center;
+        }
       }
     }
 
     &-text {
       .roboto-regular();
       font-size: 14px;
-      line-height: 15px;;
+      line-height: 16px;
+
+      @media @mobile {
+        font-size: 12px;
+        line-height: 14px;
+      }
 
       &-container {
         width: 50%;
         display: inline-block;
         margin-left: 50px;
+
+        @media @mobile {
+          width: 100%;
+          margin-left: 0;
+          margin-top: 40px;
+        }
       }
     }
 
     &-wrapper {
       display: flex;
+
+      @media @mobile {
+        flex-direction: column;
+      }
     }
 
     &-button {
@@ -51,49 +87,20 @@
     }
   }
 
-  &__carousel {
-    ::ng-deep .carousel {
-      position: static;
-
-      .mat-icon-button {
-        &:first-of-type {
-          left: -15px;
-        }
-
-        &:last-of-type {
-          right: -15px;
-        }
-      }
+  &__close {
+    @media @mobile {
+      position: absolute;
+      z-index: 1;
+      top: 16px;
+      right: 16px;
     }
 
-    ::ng-deep .carousel-slide, ::ng-deep .carousel-slide-overlay, ::ng-deep .carousel-slide-content {
-      border-radius: 15px;
-      cursor: default;
-    }
+    &-text {
+      .roboto-regular();
 
-    ::ng-deep .mat-icon {
-      width: 40px;
-      height: 40px;
-    }
-
-    ::ng-deep .carousel-indicators {
-      bottom: -20px;
-
-      .mat-focus-indicator {
-        box-shadow: none;
-        height: 7px;
-        width: 7px;
-        margin: 0 3px;
-      }
-
-      .mat-ripple {
-        background-color: #CC9AF2;
-      }
-
-      .mat-button-disabled {
-        .mat-ripple {
-          background-color: #8100E5;
-        }
+      @media @mobile {
+        font-size: 14px;
+        line-height: 16px;
       }
     }
   }

@@ -1,6 +1,12 @@
+@import (less) 'media.less';
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+
+  @media @mobile {
+    width: 0;
+  }
 }
 
 /* Track */

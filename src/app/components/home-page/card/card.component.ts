@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {Card} from "../../../utils/interfaces";
+import {MediaService} from "../../../services/media.service";
 
 
 @Component({
@@ -17,7 +18,8 @@ export class CardComponent {
   @Input()
   public reverseView: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              public mediaService: MediaService) {
   }
 
   public onExamplesButtonClick(): void {

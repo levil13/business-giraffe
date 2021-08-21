@@ -1,18 +1,16 @@
-<main data-aos="fade" class="home-page">
-  <section>
-    <div class="home-page__title-wrapper">
-      <h1>
-        <span data-aos="fade-left" data-aos-duration="400" class="home-page__title _yellow">
-          Лучший дизайн
-        </span>
-        <span data-aos="fade-left" data-aos-duration="600" class="home-page__title _gradient">
-          Качественная типография
-        </span>
-        <span data-aos="fade-left" data-aos-duration="800" class="home-page__title _purple">
-          По самым выгодным ценам
-        </span>
-      </h1>
-    </div>
+<section data-aos="fade">
+  <section class="home-page__title-wrapper">
+    <h1>
+      <span data-aos="fade-left" data-aos-duration="400" class="home-page__title _yellow">
+        Лучший дизайн
+      </span>
+      <span data-aos="fade-left" data-aos-duration="600" class="home-page__title _gradient">
+        Качественная типография
+      </span>
+      <span data-aos="fade-left" data-aos-duration="800" class="home-page__title _purple">
+        По самым выгодным ценам
+      </span>
+    </h1>
     <div class="home-page__subtitle">
       Искусство полиграфии — пользоваться шаблонами при печати и нешаблонным мышлением при разработке.
     </div>
@@ -20,8 +18,28 @@
 
   <section class="home-page__content">
     <h2 class="home-page__content-title">Дизайн и печать</h2>
-    <article *ngFor="let card of cards; odd as isOdd">
-      <app-card [reverseView]="isOdd" [card]="card"></app-card>
+    <article class="home-page__content-wrapper">
+      <ng-container *ngIf="(mediaService.media$ | async)?.isDesktop; else mobileCards">
+        <app-card *ngFor="let card of cards; odd as isOdd"
+                  [reverseView]="isOdd"
+                  [card]="card">
+        </app-card>
+      </ng-container>
+
+      <ng-template #mobileCards>
+        <mat-carousel class="carousel-component"
+                      [autoplay]="false"
+                      [hideArrows]="false"
+                      [hideIndicators]="false"
+                      [maintainAspectRatio]="false"
+                      [svgIconOverrides]="{arrowBack: 'arrow_back', arrowForward: 'arrow_forward'}">
+          <mat-carousel-slide
+            *ngFor="let card of cards"
+            [hideOverlay]="true">
+            <app-card [card]="card"></app-card>
+          </mat-carousel-slide>
+        </mat-carousel>
+      </ng-template>
     </article>
   </section>
-</main>
+</section>

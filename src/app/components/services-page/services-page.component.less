@@ -1,7 +1,12 @@
-@import "../../../assets/styles/mixins";
+@import "../../../styles/mixins";
+@import "../../../styles/media";
 
 .services-page {
   margin-top: 31px;
+
+  @media @mobile {
+    margin-top: 0;
+  }
 
   &__content {
     display: flex;
@@ -15,6 +20,12 @@
     color: #FF6363;
     margin: 0 auto 75px;
     text-align: center;
+
+    @media @mobile {
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 19px;
+    }
 
     &._m-b34 {
       margin-bottom: 34px;
@@ -31,6 +42,11 @@
     border-radius: 32px;
     cursor: pointer;
     transition: 300ms;
+
+    @media @mobile {
+      width: 156px;
+      height: 185px;
+    }
 
     &:hover {
       transform: scale(1.05);
@@ -55,6 +71,11 @@
       width: 100%;
       text-align: center;
       margin-bottom: 24px;
+
+      @media @mobile {
+        font-size: 16px;
+        line-height: 19px;
+      }
     }
 
     &-container {

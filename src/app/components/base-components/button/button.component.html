@@ -1,4 +1,4 @@
-<button class="button"
+<button class="button {{(mediaService.media$ | async)?.isMobile ? '_mobile' : ''}}"
         (click)="buttonClick.emit()"
         [disabled]="disabled"
         [ngClass]="buttonClass"

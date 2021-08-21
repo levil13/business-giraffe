@@ -1,3 +1,9 @@
-<div mat-dialog-content>
-  <app-contacts [messageSubject]="data" [isPopover]="true"></app-contacts>
+<div>
+  <div *ngIf="(mediaService.media$ | async)?.isMobile" class="contacts-dialog__close">
+    <p class="contacts-dialog__close-text" (click)="dialogRef.close()">Закрыть</p>
+  </div>
+  <h3 class="contacts-dialog__title">Заказать</h3>
+  <app-contacts [messageSubject]="data"
+                [isPopover]="true">
+  </app-contacts>
 </div>

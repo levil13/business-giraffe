@@ -1,9 +1,13 @@
-@import "../../../../assets/styles/mixins";
+@import "../../../../styles/mixins";
+@import "../../../../styles/media";
 
 .header {
-  padding: 56px 0;
-  display: flex;
-  align-items: center;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &__title {
     margin-left: 13px;
@@ -44,18 +48,18 @@
     }
   }
 
-  &__phone {
+  &__phone,
+  &__burger {
     &-wrapper {
       display: flex;
+
+      @media @mobile {
+        margin-left: auto;
+      }
     }
   }
 
   &__icon {
-    &._logo {
-      width: 47px;
-      height: 47px;
-    }
-
     &._phone {
       width: 23px;
       height: 23px;
@@ -64,6 +68,13 @@
 
   &__menu {
     margin: 0 auto;
+
+    @media @mobile {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: space-around;
+    }
 
     &-link {
       margin-right: 56px;
@@ -76,6 +87,10 @@
       color: #969696;
       text-decoration: none;
 
+      @media @mobile {
+        margin-right: 0;
+      }
+
       &._active {
         color: black;
       }
@@ -83,6 +98,66 @@
       &:hover {
         color: black;
       }
+    }
+
+    &-toggle {
+      margin-left: auto;
+      position: relative;
+      display: block;
+      width: 20px;
+      height: 12px;
+
+      background: transparent;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+
+      color: black;
+      font-size: 0;
+
+      transition: all .25s ease-in-out;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        background: black;
+
+        transform: translate(-50%, -50%);
+        transition: transform .25s ease-in-out;
+      }
+
+      &:hover {
+        color: lighten(black, 15%);
+      }
+
+      &._is-active {
+        border-color: transparent;
+
+        &:before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+
+    &-fade {
+      animation: 600ms ease 0s normal forwards 1 fadein;
+    }
+
+    @keyframes fadein {
+      0% { opacity:0; }
+      66% { opacity:0; }
+      100% { opacity:1; }
     }
   }
 
